@@ -6,16 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./css/regular.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/solid.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/brands.min.css" rel="stylesheet" type="text/css" />
     <link href="./css/fontAwesome.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>My music</title>
   </head>
   <body>
+    <!-- loading -->
+    <div id="loading-container" class="loading-container">
+      <img src="./assets/pulse.gif" class="loading" />
+    </div>
+    <!--end loading -->
+
     <!-- header-->
     <header>
       <div class="logo-container">
         <img src="./assets/logo.png" class="logo" />
       </div>
+      <button id="openMenuBtn" class="open-menu-icon">
+        <i class="fas fa-bars"></i>
+      </button>
       <nav>
+        <button id="closeMenuBtn" class="close-menu-icon">
+          <i class="fas fa-times"></i>
+        </button>
         <ul class="nav-menu">
           <li>
             <a href="#">
@@ -47,7 +62,7 @@
           <li>
             <a href="#">
               <div>
-                <i class="fa fa-info"></i>
+                <i class="fas fa-info-circle"></i>
                 <span class="title">About us</span>
               </div>
             </a>
@@ -55,85 +70,93 @@
         </ul>
       </nav>
     </header>
+    <!-- end header -->
 
-    <!--secions-->
-    <section class="hero">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1>My book store</h1>
-          <h3>Read more . Success more</h3>
+    <!--main-->
+    <main>
+      <!-- hero secion secion-->
+      <section class="hero">
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1>My Music</h1>
+            <p>Active . Powerfull</p>
+            <button id="hero-button" class="hero-button">
+              Start now<i class="fa fa-play"></i>
+            </button>
+          </div>
+          <div class="heroImageContainer">
+            <img src="./assets/heroImage.png" class="heroImage" />
+          </div>
+        </div>
+      </section>
+
+      <section id="categoriesContainer" class="categoris-bar">
+        <!--categories will added here-->
+      </section>
+
+      <section class="grid-1-3">
+        <div class="title-container popular-img">
+          <div class="content">
+            <h3>Top lists</h3>
+          </div>
+        </div>
+        <div id="topLists" class="grid-2-2">
+          <!--top will added here-->
+        </div>
+      </section>
+
+      <section class="grid-3-1">
+        <div id="mostLists" class="grid-2-2"></div>
+        <div class="title-container latest-img">
+          <div class="content">
+            <h3>Latest</h3>
+          </div>
+        </div>
+      </section>
+      <!--end sections-->
+    </main>
+    <!--end main-->
+
+    <!--footer-->
+    <footer>
+      <div class="logo-section">
+        <div class="footer-image">
+          <img src="./assets/logo.png" />
         </div>
       </div>
-    </section>
+      <div class="site-map">
+        <ul>
+          <li><i class="fa fa-home"></i> Home</li>
+          <li><i class="fa fa-box-open"></i> Categories</li>
+          <li><i class="fas fa-heartbeat"></i> Favorite</li>
+          <li><i class="fas fa-info-circle"></i> About</li>
+        </ul>
+      </div>
+      <div class="social">
+        <ul>
+          <li><i class="fab fa-facebook"></i><span> Facebook</span></li>
+          <li><i class="fab fa-twitter"></i> <span> Twitter</span></li>
+          <li><i class="fab fa-linkedin"></i><span> Linkedin</span></li>
+          <li><i class="fab fa-youtube"></i><span> Youtube</span></li>
+        </ul>
+      </div>
+    </footer>
+    <!--end footer -->
 
-    <section class='grid-container'>
-        <h3 class="grid-title">Categories</h3>
-        <div class="grid-content">
-            <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/detective.png" />
-                    <span>50 books</span>
-                    <h4>Detective</h4>
-                </div>
-            </div>
+    <!--scroll btn-->
+    <div class="scroll-btn">
+      <a id="scroll">
+        <i class="fas fa-chevron-circle-up"></i>
+      </a>
+    </div>
+    <!-- end scroll btn-->
 
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/bio.png" />
-                    <h4>Biography</h4>
-                </div>
-            </div>
-
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/sci.png" />
-                    <h4>Science Fiction</h4>
-                </div>
-            </div>
-
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/chi.png" />
-                    <h4>NonFiction</h4>
-                </div>
-            </div>
-
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/graphic.png" />
-                    <h4>Graphic Novel</h4>
-                </div>
-            </div>
-
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/romantic.png" />
-                    <h4>Romance</h4>
-                </div>
-            </div>
-
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/child.png" />
-                    <h4>Children Literature</h4>
-                </div>
-            </div>
-
-             <div class="grid-item">
-                <div class="category-card">
-                    <img src="./assets/adv.png" />
-                    <h4>Detective</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </section>
-
-    <!--end sections-->
-    <!--footer-->
-    <footer></footer>
+    <!--scripts-->
+    <script src="./js/requests.js"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/fontAwesome.js"></script>
+    <script src="./js/brands.min.js"></script>
+    <script src="./js/regular.min.js"></script>
+    <script src="./js/solid.min.js"></script>
+    <!--end scripts -->
   </body>
 </html>

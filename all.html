@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./css/regular.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/solid.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/brands.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/fontAwesome.css" rel="stylesheet" type="text/css" />
+    <title>My music</title>
+  </head>
+  <body>
+    <!-- loading -->
+    <div id="loading-container" class="loading-container">
+      <img src="./assets/pulse.gif" class="loading" />
+    </div>
+    <!--end loading -->
+
+    <!-- header-->
+    <header>
+      <div class="logo-container">
+        <img src="./assets/logo.png" class="logo" />
+      </div>
+      <button id="openMenuBtn" class="open-menu-icon">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <button id="closeMenuBtn" class="close-menu-icon">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul class="nav-menu">
+          <li>
+            <a href="#">
+              <div>
+                <i class="fa fa-home"></i>
+                <span class="title">Home</span>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <div>
+                <i class="fa fa-box-open"></i>
+                <span class="title">Categories</span>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <div>
+                <i class="fa fa-user"></i>
+                <span class="title">Authors</span>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <div>
+                <i class="fas fa-info-circle"></i>
+                <span class="title">About us</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- end header -->
+
+    <!--main-->
+    <main class="all">
+      <!-- hero secion secion-->
+      <section id="hero" class="hero">
+        <div class="overlay">
+          <h1>All Playlists</h1>
+        </div>
+      </section>
+
+      <section class="grid-1-3">
+        <div class="filter-container">
+        <div id="resultPlaylists" class="grid-2-2">
+          <!--top will added here-->
+        </div>
+      </section>
+      <!--end sections-->
+    </main>
+    <!--end main-->
+
+    <!--footer-->
+    <footer>
+      <div class="logo-section">
+        <div class="footer-image">
+          <img src="./assets/logo.png" />
+        </div>
+      </div>
+      <div class="site-map">
+        <ul>
+          <li><i class="fa fa-home"></i> Home</li>
+          <li><i class="fa fa-box-open"></i> Categories</li>
+          <li><i class="fas fa-heartbeat"></i> Favorite</li>
+          <li><i class="fas fa-info-circle"></i> About</li>
+        </ul>
+      </div>
+      <div class="social">
+        <ul>
+          <li><i class="fab fa-facebook"></i><span> Facebook</span></li>
+          <li><i class="fab fa-twitter"></i> <span> Twitter</span></li>
+          <li><i class="fab fa-linkedin"></i><span> Linkedin</span></li>
+          <li><i class="fab fa-youtube"></i><span> Youtube</span></li>
+        </ul>
+      </div>
+    </footer>
+    <!--end footer -->
+
+    <!--scroll btn-->
+    <div class="scroll-btn">
+      <a id="scroll">
+        <i class="fas fa-chevron-circle-up"></i>
+      </a>
+    </div>
+    <!-- end scroll btn-->
+
+    <!--scripts-->
+    <script src="./js/requests.js"></script>
+    <script src="./js/main-script.js"></script>
+    <script src="./js/all-script.js"></script>
+    <script src="./js/brands.min.js"></script>
+    <script src="./js/regular.min.js"></script>
+    <script src="./js/solid.min.js"></script>
+    <!--end scripts -->
+  </body>
+</html>

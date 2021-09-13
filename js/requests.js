@@ -27,7 +27,7 @@ const addPlayLists = (playlists, container) => {
               <div class="playlist-image">
                 <img src="${element.images[0].url}" />
                 <div class="play-icon">
-                  <a href="/${element.external_urls.spotify}">
+                  <a href="${element.external_urls.spotify}">
                     <i class="fa fa-play-circle"></i>
                   </a>
                 </div>

@@ -65,9 +65,9 @@ section {
   align-items: center;
 }
 .logo {
-  width: 65px;
+  width: 50px;
   height: auto;
-  animation: rotate 2s linear infinite;
+  animation: pulse 2s linear infinite;
 }
 .nav-menu li {
   display: inline-block;
@@ -80,6 +80,10 @@ nav li a {
 }
 nav li a:hover {
   color: var(--primary-color);
+}
+
+.current span, .current i{
+  color: var(--primary-color)!important;
 }
 .close-menu-icon {
   position: absolute;
@@ -287,6 +291,7 @@ nav li a:hover {
   justify-content: space-between;
 }
 .playlist-item h3 {
+  font-size: 1em;
   text-align: center;
   color: var(--secondary-color);
   text-shadow: 0px 0px 5px var(--primary-overlay);
@@ -325,9 +330,9 @@ footer .footer-image {
   align-items: center;
 }
 footer img {
-  max-width: 300px;
+  max-width: 150px;
   height: auto;
-  animation: rotate 2s cubic-bezier(0, 0.6, 1, 0.43) infinite;
+  animation: pulse 2s cubic-bezier(0, 0.6, 1, 0.43) infinite;
 }
 footer .site-map {
   display: flex;
@@ -386,6 +391,77 @@ footer li {
 }
 
 /* Extra small devices (phones, 600px and down) */
+
+/*all*/
+.all .filter-container{
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+}
+.all .filter-container .search-container{
+  border: 1px solid var(--black-color);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.all .filter-container .search-container i{
+ font-size: 1rem;
+ color: var(--secondary-color);
+}
+
+.all #searchInput {
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  width: 100%;
+}
+.all .filter-container ul {
+  list-style: none;
+  padding: 10px;
+  width: 100%;
+}
+.all .filter-container ul li {
+  padding: 10px;
+  border-bottom: 1px solid var(--light-background);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.all .filter-container ul li:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.all .filter-container img{
+  width: 50px;
+  height: auto;
+  margin: 10px;
+
+}
+.all #loadingResults{
+  display: flex;
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.all #loadingResults i{
+  font-size: 50px;
+  color: var(--primary-overlay);
+  animation: spine 0.5s  ease-in-out infinite;
+}
+
 @media only screen and (max-width: 600px) {
   /* mobile header */
   nav {
@@ -436,59 +512,6 @@ footer li {
   footer img {
     width: 75%;
   }
-}
-/*all*/
-.all .filter-container{
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.all .filter-container .search-container{
-  border: 1px solid var(--black-color);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.all .filter-container .search-container i{
- font-size: 1rem;
- color: var(--secondary-color);
-}
-
-.all #searchInput {
-  padding: 10px;
-  border: none;
-  background-color: transparent;
-  font-size: 1rem;
-  width: 100%;
-}
-.all .filter-container ul {
-  list-style: none;
-  padding: 10px;
-  width: 100%;
-}
-.all .filter-container ul li {
-  padding: 10px;
-  border-bottom: 1px solid var(--light-background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-.all .filter-container ul li:hover {
-  background: var(--primary-color);
-  color: var(--white-color);
-}
-
-.all .filter-container img{
-  width: 25px;
-  height: auto;
-
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -548,5 +571,32 @@ footer li {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes spine {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse{
+  0%{
+    transform: scale(1);
+  }
+  25%{
+    transform: scale(1.2);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  75%{
+    transform: scale(1.25);
+  }
+  100%{
+    transform: scale(1);
   }
 }

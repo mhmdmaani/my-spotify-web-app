@@ -43,7 +43,7 @@
 
           <li>
             <a href="/all.html">
-              <div class="current">
+              <div>
                 <i class="fa fa-box-open"></i>
                 <span class="title">Categories</span>
               </div>
@@ -77,28 +77,12 @@
       <!-- hero secion secion-->
       <section id="hero" class="hero">
         <div class="overlay">
-          <h1>All Playlists</h1>
+          <h1>My Favorite playlists</h1>
         </div>
       </section>
 
-      <section class="grid-1-3">
-        <div class="filter-container">
-          <div class="search-container">
-            <input id="searchInput" type="search" placeholder="Search" />
-            <i class="fa fa-search"></i>
-          </div>
-          <ul id="categoriesList">
-           
-          </ul>
-        </div>
-        <div style='width: 100%;'>
-        <div id='loadingResults'>
-          <i class="fas fa-spinner"></i>
-        </div>
-        <div id="resultPlaylists" class="grid-2-2">
-          <!--top will added here-->
-        </div>
-        </div>
+      <section id="favoritePlaylistsContainer" class="grid-2-2">
+          <!--display playlists here--> 
       </section>
       <!--end sections-->
     </main>
@@ -141,7 +125,7 @@
     <!--scripts-->
     <script src="./js/requests.js"></script>
     <script src="./js/main-script.js"></script>
-    <script src="./js/all-script.js"></script>
+    <script src="./js/favorite-script.js"></script>
     <script src="./js/brands.min.js"></script>
     <script src="./js/regular.min.js"></script>
     <script src="./js/solid.min.js"></script>

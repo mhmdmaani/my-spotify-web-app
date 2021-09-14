@@ -4,10 +4,48 @@ const categoriesContainer = document.getElementById('categoriesContainer');
 const topContainer = document.getElementById('topLists');
 const most = document.getElementById('mostLists');
 
-const favoriteItems =
-  localStorage.getItem('favorite') !== null
-    ? JSON.parse(localStorage.getItem('favorite'))
-    : [];
+const addToFavorite = (playlist)=>{
+   const previous = localStorage.getItem('favorite');
+   if(!previous){
+     const stringifyPlaylist = JSON.stringify([playlist]);
+     localStorage.setItem('favorite',stringifyPlaylist);
+   }else{
+    const all = JSON.parse(previous);
+    const newAll = [...all,playlist];
+    const stringifyNewAll = JSON.stringify(newAll);
+    localStorage.setItem('favorite',stringifyNewAll); 
+   }
+}
+
+const removeFromFavorite = (playlist)=>{
+  const previous = localStorage.getItem('favorite');
+  if(!previous){
+   return;
+  }
+   const all = JSON.parse(previous);
+   const newAll =all.filter(c=>c.id!==playlist.id);
+   const stringifyNewAll = JSON.stringify(newAll);
+   localStorage.setItem('favorite',stringifyNewAll);
+   // remove from favorite page 
+   const favoriteContainer = document.getElementById('favoritePlaylistsContainer');
+
+   if(favoriteContainer){
+      document.getElementById(playlist.id).remove();
+   }
+}
+
+const checkIsFavorite = (playlist)=>{
+  const previous = localStorage.getItem('favorite');
+  if(!previous){
+    return false;
+  }
+  const jsonFavorite = JSON.parse(previous);
+  if( jsonFavorite.filter(c=>c.id===playlist.id).length>0){
+    return true
+  }
+  return false;
+}
+
 
 function getHomeData() {
   fetch(`${url}/test/all`)
@@ -19,10 +57,36 @@ function getHomeData() {
     });
 }
 
+function onToggleFav(id,name,image,url,owner,tracks){
+  const currentfavicon = document.getElementById(`fav${id}`);
+
+  const pl = {
+    id,
+    name,
+    images:[{url:image}],
+    external_urls:{spotify:url},
+    owner:{display_name:owner},
+    tracks:{total:tracks}
+  }
+
+  if(checkIsFavorite(pl)){
+
+    removeFromFavorite(pl);
+    currentfavicon.classList.remove('fas');
+    currentfavicon.classList.add('far');
+  }else{
+    addToFavorite(pl);
+    currentfavicon.classList.remove('far');
+    currentfavicon.classList.add('fas');
+  }
+  
+}
+
 const addPlayLists = (playlists, container) => {
+  container.innerHTML = '';
   playlists.forEach((element) => {
     container.innerHTML += `
-       <div class="playlist-item-container">
+       <div id=${element.id} class="playlist-item-container">
             <div class="playlist-item">
               <div class="playlist-image">
                 <img src="${element.images[0].url}" />
@@ -33,24 +97,20 @@ const addPlayLists = (playlists, container) => {
                 </div>
               </div>
               <div class="content">
-                <h3>${element.name}</h3>
+                <h3>${ element.name.split('\n')[0]}</h3>
                 <div class="playlist-info">
                   <span class="author">
                     <i class="far fa-user-circle"></i> 
                     ${element.owner.display_name} (${element.tracks.total})
                   </span>
-                  ${
-                    favoriteItems &&
-                    favoriteItems.filter((c) => c.id === element.id).length > 0
-                      ? '<span><i class="fas fa-heart"></i></span>'
-                      : '<span><i class="far fa-heart"></i></span>'
-                  }
+                    <span  onclick="onToggleFav('${element.id}','${element.name}','${element.images[0].url}','${element.external_urls.spotify}','${element.owner.display_name}','${element.tracks.total}')" ><i id="fav${element.id}"
+                       class=" ${checkIsFavorite(element)?'fas':'far'} fa-heart"></i></span>
+              
+              
                 </div>
               </div>
             </div>
           </div>
-  
-  
   `;
   });
 };
@@ -69,7 +129,7 @@ const addCategories = (categories, container) => {
 };
 
 const getCategoryPlaylists = (id) => {
-  fetch(`${url}/test/category?id=${id}`)
+ return fetch(`${url}/test/category?id=${id}`)
     .then((res) => res.json())
     .then((data) => {
       return data;
@@ -77,15 +137,15 @@ const getCategoryPlaylists = (id) => {
 };
 
 const searchByText = (text) => {
-  fetch(`${url}/test/search?key=${text}`)
+  return fetch(`${url}/test/search?key=${text}`)
     .then((res) => res.json())
     .then((data) => {
-      return data;
+      return data.playlists.items;
     });
 };
 
 const getCategories = () => {
-  fetch(`${url}/test/categories`)
+ return fetch(`${url}/test/categories`)
     .then((res) => res.json())
     .then((data) => {
       return data;

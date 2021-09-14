@@ -60,7 +60,7 @@ function fadeIn() {
   }
 }
 window.onload = () => {
-  getHomeData();
+ // getHomeData();
 
   setTimeout(() => {
     loadingContainer.style.display = 'none';

@@ -67,3 +67,27 @@ const addCategories = (categories, container) => {
   `;
   });
 };
+
+const getCategoryPlaylists = (id) => {
+  fetch(`${url}/test/category?id=${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+};
+
+const searchByText = (text) => {
+  fetch(`${url}/test/search?key=${text}`)
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+};
+
+const getCategories = () => {
+  fetch(`${url}/test/categories`)
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+};
